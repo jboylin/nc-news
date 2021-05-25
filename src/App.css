@@ -62,5 +62,6 @@
   display: flex;
 }
 
-.header__username {
+.vote__icon {
+  width: 1.5rem;
 }
