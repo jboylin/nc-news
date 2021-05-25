@@ -12,8 +12,6 @@ const Article = () => {
 
   let { article_id } = useParams();
 
-  console.log("HEllo :)");
-
   useEffect(() => {
     fetchArticleById(article_id).then((body) => {
       setArticle(body);

@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { fetchUsers } from "../util/api";
 import { UserContext } from "./context/user";
 import user_profile_pic from "/home/joseph/Northcoders/frontend/week-10/nc-news/src/images/Default-Profile-Picture-Download-PNG-Image.png";
@@ -30,13 +31,15 @@ const Login = () => {
                 src={user_profile_pic}
                 alt="default_profile_pic"
               />
-              <button
-                onClick={() => {
-                  setUser(user);
-                }}
-              >
-                <h3>{user.username}</h3>
-              </button>
+              <Link to="/home">
+                <button
+                  onClick={() => {
+                    setUser(user);
+                  }}
+                >
+                  <h3>{user.username}</h3>
+                </button>
+              </Link>
             </li>
           );
         })}

@@ -33,3 +33,9 @@ export const fetchArticleById = (article_id) => {
 export const fetchUsers = () => {
   return axios.get(`${BASE_URL}users`).then((response) => response.data.users);
 };
+
+export const voteArticle = (article_id, voteObject) => {
+  return axios
+    .patch(`${BASE_URL}articles/${article_id}`, voteObject)
+    .then((response) => console.log(response));
+};

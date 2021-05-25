@@ -1,9 +1,9 @@
 import Articles from "./Articles";
 
-const Home = ({ loading, setLoading }) => {
+const Home = () => {
   return (
     <>
-      <Articles loading={loading} setLoading={setLoading} />
+      <Articles />
     </>
   );
 };
