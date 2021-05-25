@@ -6,6 +6,7 @@
   font-size: calc(10px + 2vmin);
   color: rgb(0, 0, 0);
   background-color: rgb(204, 204, 204);
+  list-style-type: none;
 }
 
 .App-link {
@@ -25,6 +26,7 @@
   margin-top: 0;
   background-color: rgb(187, 187, 187);
   padding: 2em;
+  float: left;
 }
 
 .navbar {
@@ -46,4 +48,19 @@
   border-radius: 20%;
   padding: 0;
   margin: 0;
+}
+
+.comment__icon {
+  width: 1.5rem;
+}
+
+.profile__picture {
+  width: 7rem;
+}
+
+.users {
+  display: flex;
+}
+
+.header__username {
 }

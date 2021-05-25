@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchArticles } from "../util/api";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import comment_icon from "/home/joseph/Northcoders/frontend/week-10/nc-news/src/images/159777.png";
 
 const Articles = () => {
   const [articles, setArticles] = useState();
@@ -28,9 +29,14 @@ const Articles = () => {
               <h2>{article.topic}</h2>
               <h3>{article.author}</h3>
               <h4>{article.created_at}</h4>
-              <h4>{article.comment_count}</h4>
-
-              <p>{article.body}</p>
+              <h4>
+                <img
+                  className="comment__icon"
+                  src={comment_icon}
+                  alt="comment_icon"
+                />
+                {article.comment_count}
+              </h4>
             </li>
           </div>
         );

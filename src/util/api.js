@@ -18,12 +18,18 @@ export const fetchTopics = () => {
     .then((response) => response.data.topics);
 };
 
-// export const fetchComments = () => {
-//   return axios.get(`${BASE_URL}${article_id}`).then(response);
-// };
+export const fetchComments = (article_id) => {
+  return axios
+    .get(`${BASE_URL}articles/${article_id}/comments`)
+    .then((response) => response.data.comments);
+};
 
 export const fetchArticleById = (article_id) => {
   return axios
     .get(`${BASE_URL}articles/${article_id}`)
     .then((response) => response.data.article);
+};
+
+export const fetchUsers = () => {
+  return axios.get(`${BASE_URL}users`).then((response) => response.data.users);
 };
