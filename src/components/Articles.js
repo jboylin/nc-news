@@ -3,8 +3,7 @@ import { fetchArticles } from "../util/api";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import comment_icon from "/home/joseph/Northcoders/frontend/week-10/nc-news/src/images/159777.png";
-import up_arrow from "/home/joseph/Northcoders/frontend/week-10/nc-news/src/images/up_arrow.png";
-import down_arrow from "/home/joseph/Northcoders/frontend/week-10/nc-news/src/images/down_arrow.png";
+import VoteOnArticle from "./sub-components/Vote";
 const Articles = () => {
   const [articles, setArticles] = useState();
   const [loading, setLoading] = useState(true);
@@ -38,12 +37,7 @@ const Articles = () => {
                 />
                 {article.comment_count}
               </h4>
-              <h5>
-                votes:{" "}
-                <img className="vote__icon" src={up_arrow} alt="upvote" />{" "}
-                {article.votes}{" "}
-                <img className="vote__icon" src={down_arrow} alt="downvote" />
-              </h5>
+              <VoteOnArticle article={article} />
             </li>
           </div>
         );

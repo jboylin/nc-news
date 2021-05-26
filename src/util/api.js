@@ -39,3 +39,15 @@ export const voteArticle = (article_id, voteObject) => {
     .patch(`${BASE_URL}articles/${article_id}`, voteObject)
     .then((response) => console.log(response));
 };
+
+export const postCommentOnArticle = (article_id, commentObject) => {
+  return axios
+    .post(`${BASE_URL}articles/${article_id}/comments`, commentObject)
+    .then((response) => response.data);
+};
+
+export const deleteCommentById = (comment_id) => {
+  return axios
+    .delete(`${BASE_URL}comments/${comment_id}`)
+    .then((response) => console.log(response));
+};

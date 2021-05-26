@@ -1,21 +1,47 @@
-import { useParams } from "react-router";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import up_arrow from "/home/joseph/Northcoders/frontend/week-10/nc-news/src/images/up_arrow.png";
 import down_arrow from "/home/joseph/Northcoders/frontend/week-10/nc-news/src/images/down_arrow.png";
 import { voteArticle } from "../../util/api";
-const VoteOnArticle = () => {
-  let { article_id } = useParams();
+const VoteOnArticle = ({ article }) => {
+  const article_id = article.article_id;
   const [vote, setVote] = useState();
-  const [isLoading, setIsLoading] = usestate(true);
+  const [displayVote, setDisplayVote] = useState(article.votes);
 
-  useEffect(() => {
+  const voteIncrement = (event) => {
+    event.preventDefault();
     voteArticle(article_id, vote);
-  });
+  };
+
+  return (
+    <>
+      <form className="submit__vote" onSubmit={voteIncrement}>
+        <h6>
+          <button
+            onClick={() => {
+              setDisplayVote((currDisplayVote) => currDisplayVote + 1);
+              setVote({ inc_votes: 1 });
+            }}
+          >
+            <img className="vote__icon" src={up_arrow} alt="upvote" />
+          </button>
+          {displayVote}
+          <button
+            onClick={() => {
+              setDisplayVote((currDisplayVote) => currDisplayVote - 1);
+              setVote({ inc_votes: -1 });
+            }}
+          >
+            <img className="vote__icon" src={down_arrow} alt="downvote" />
+          </button>
+        </h6>
+      </form>
+    </>
+  );
 };
 
 export default VoteOnArticle;
 
 /* You were here:
-    wondering whether you need to use useparams if you need to pass down
+    wondering whether you need to use useparams. If you need to pass down
     the whole of article anyway which contains the article id? Maybe both?
 */
