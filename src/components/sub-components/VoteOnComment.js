@@ -1,15 +1,16 @@
 import { useState } from "react";
 import up_arrow from "/home/joseph/Northcoders/frontend/week-10/nc-news/src/images/up_arrow.png";
 import down_arrow from "/home/joseph/Northcoders/frontend/week-10/nc-news/src/images/down_arrow.png";
-import { voteArticle } from "../../util/api";
-const VoteOnArticle = ({ article }) => {
-  const article_id = article.article_id;
+import { voteOnType } from "../../util/api";
+const VoteOnComment = ({ comment }) => {
+  const id = comment.comment_id;
   const [vote, setVote] = useState();
-  const [displayVote, setDisplayVote] = useState(article.votes);
+  const [displayVote, setDisplayVote] = useState(comment.votes);
 
   const voteIncrement = (event) => {
     event.preventDefault();
-    voteArticle(article_id, vote);
+    const type = "comments";
+    voteOnType(type, id, vote);
   };
 
   return (
@@ -39,7 +40,7 @@ const VoteOnArticle = ({ article }) => {
   );
 };
 
-export default VoteOnArticle;
+export default VoteOnComment;
 
 /* You were here:
     wondering whether you need to use useparams. If you need to pass down

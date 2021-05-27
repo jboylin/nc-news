@@ -2,11 +2,13 @@ import axios from "axios";
 
 const BASE_URL = "https://boylins-nc-news.herokuapp.com/api/";
 
-export const fetchArticles = (slug) => {
+export const fetchArticles = (slug, order, sort) => {
   return axios
     .get(`${BASE_URL}articles`, {
       params: {
         topic: slug,
+        sort_by: sort,
+        order: order,
       },
     })
     .then((response) => response.data.articles);
@@ -34,9 +36,9 @@ export const fetchUsers = () => {
   return axios.get(`${BASE_URL}users`).then((response) => response.data.users);
 };
 
-export const voteArticle = (article_id, voteObject) => {
+export const voteOnType = (type, id, voteObject) => {
   return axios
-    .patch(`${BASE_URL}articles/${article_id}`, voteObject)
+    .patch(`${BASE_URL}${type}/${id}`, voteObject)
     .then((response) => console.log(response));
 };
 
@@ -46,8 +48,14 @@ export const postCommentOnArticle = (article_id, commentObject) => {
     .then((response) => response.data);
 };
 
-export const deleteCommentById = (comment_id) => {
+export const deleteById = (type, id) => {
   return axios
-    .delete(`${BASE_URL}comments/${comment_id}`)
+    .delete(`${BASE_URL}${type}/${id}`)
     .then((response) => console.log(response));
+};
+
+export const fetchUserByUsername = (username) => {
+  return axios
+    .get(`${BASE_URL}users/${username}`)
+    .then((response) => response.data.user);
 };

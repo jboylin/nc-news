@@ -1,9 +1,10 @@
-import { deleteCommentById } from "../../util/api";
+import { deleteById } from "../../util/api";
 
 const DeleteComment = ({ comment, setCommentCounter, setComments }) => {
   const comment_id = comment.comment_id;
   const removeComment = () => {
-    deleteCommentById(comment_id).then(() => {
+    const type = "comments";
+    deleteById(type, comment_id).then(() => {
       setComments((currComments) => {
         const currCommentsCopy = [...currComments];
         return currCommentsCopy.filter((currComment) => {

@@ -1,10 +1,9 @@
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
-import up_arrow from "/home/joseph/Northcoders/frontend/week-10/nc-news/src/images/up_arrow.png";
-import down_arrow from "/home/joseph/Northcoders/frontend/week-10/nc-news/src/images/down_arrow.png";
 import { fetchComments } from "../util/api";
 import CommentOnArticle from "./sub-components/CommentOnArticle";
 import DeleteComment from "./sub-components/DeleteComment";
+import VoteOnComment from "./sub-components/VoteOnComment";
 const Comments = ({ setCommentCounter }) => {
   let { article_id } = useParams();
   const [comments, setComments] = useState();
@@ -31,11 +30,7 @@ const Comments = ({ setCommentCounter }) => {
             <li key={comment.comment_id}>
               <h6>{comment.author}</h6>
               <p>{comment.body}</p>
-              <p>
-                <img className="vote__icon" src={up_arrow} alt="upvote" />
-                {comment.votes}{" "}
-                <img className="vote__icon" src={down_arrow} alt="downvote" />
-              </p>
+              <VoteOnComment comment={comment} />
               <p>{comment.created_at}</p>
               <DeleteComment
                 comment={comment}

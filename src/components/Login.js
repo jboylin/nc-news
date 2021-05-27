@@ -2,15 +2,15 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchUsers } from "../util/api";
 import { UserContext } from "./context/user";
-import user_profile_pic from "/home/joseph/Northcoders/frontend/week-10/nc-news/src/images/Default-Profile-Picture-Download-PNG-Image.png";
 
 const Login = () => {
-  const [users, setUsers] = useState();
+  const [users, setUsers] = useState([]);
   const { setUser } = useContext(UserContext);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetchUsers().then((body) => {
+      console.log(body);
       setUsers(body);
       setIsLoading(false);
     });
@@ -28,8 +28,8 @@ const Login = () => {
             <li>
               <img
                 className="profile__picture"
-                src={user_profile_pic}
-                alt="default_profile_pic"
+                src={user.avatar_url}
+                alt="profile_pic"
               />
               <Link to="/home">
                 <button
