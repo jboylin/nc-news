@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { fetchArticles } from "../util/api";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
-import comment_icon from "/home/joseph/Northcoders/frontend/week-10/nc-news/src/images/159777.png";
-import VoteOnArticle from "./sub-components/VoteOnArticle";
+import comment_icon from "../images/159777.png";
+import Vote from "./sub-components/Vote";
+import WriteNewArticle from "./sub-components/WriteNewArticle";
 const Articles = () => {
   const [articles, setArticles] = useState();
   const [loading, setLoading] = useState(true);
@@ -34,6 +35,7 @@ const Articles = () => {
       >
         oldest
       </button>
+      <WriteNewArticle setArticles={setArticles} />
       <ul className="article">
         {articles.map((article) => {
           return (
@@ -53,7 +55,11 @@ const Articles = () => {
                   />
                   {article.comment_count}
                 </h4>
-                <VoteOnArticle article={article} />
+                <Vote
+                  commentOrArt={article}
+                  id={article.article_id}
+                  type={"articles"}
+                />
               </li>
             </div>
           );

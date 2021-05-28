@@ -3,19 +3,35 @@ import { useEffect, useState } from "react";
 import { fetchComments } from "../util/api";
 import CommentOnArticle from "./sub-components/CommentOnArticle";
 import DeleteComment from "./sub-components/DeleteComment";
-import VoteOnComment from "./sub-components/VoteOnComment";
+import Vote from "./sub-components/Vote";
 const Comments = ({ setCommentCounter }) => {
   let { article_id } = useParams();
   const [comments, setComments] = useState();
   const [isCommentsLoading, setIsCommentsLoading] = useState(true);
+
   useEffect(() => {
-    fetchComments(article_id).then((body) => {
-      setComments(body);
-      setIsCommentsLoading(false);
-    });
+    fetchComments(article_id)
+      .then((body) => {
+        setComments(body);
+        setIsCommentsLoading(false);
+      })
+      .catch((error) => {
+        setIsCommentsLoading(false);
+      });
   }, [article_id]);
 
   if (isCommentsLoading) return <p>Loading</p>;
+
+  if (comments === undefined)
+    return (
+      <>
+        <CommentOnArticle
+          article_id={article_id}
+          setCommentCounter={setCommentCounter}
+          setComments={setComments}
+        />
+      </>
+    );
 
   return (
     <>
@@ -30,7 +46,11 @@ const Comments = ({ setCommentCounter }) => {
             <li key={comment.comment_id}>
               <h6>{comment.author}</h6>
               <p>{comment.body}</p>
-              <VoteOnComment comment={comment} />
+              <Vote
+                commentOrArt={comment}
+                id={comment.comment_id}
+                type={"comments"}
+              />
               <p>{comment.created_at}</p>
               <DeleteComment
                 comment={comment}

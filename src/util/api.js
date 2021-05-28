@@ -57,3 +57,9 @@ export const fetchUserByUsername = (username) => {
     .get(`${BASE_URL}users/${username}`)
     .then((response) => response.data.user);
 };
+
+export const postArticle = (articleObject) => {
+  return axios
+    .post(`${BASE_URL}articles`, articleObject)
+    .then((response) => response.data);
+};
