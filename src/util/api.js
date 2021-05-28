@@ -49,6 +49,8 @@ export const postCommentOnArticle = (article_id, commentObject) => {
 };
 
 export const deleteById = (type, id) => {
+  console.log(type);
+  console.log(id);
   return axios
     .delete(`${BASE_URL}${type}/${id}`)
     .then((response) => console.log(response));

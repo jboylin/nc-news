@@ -10,7 +10,6 @@ const Login = () => {
 
   useEffect(() => {
     fetchUsers().then((body) => {
-      console.log(body);
       setUsers(body);
       setIsLoading(false);
     });
@@ -25,7 +24,7 @@ const Login = () => {
       <ul className="users">
         {users.map((user) => {
           return (
-            <li>
+            <li key={user.username}>
               <img
                 className="profile__picture"
                 src={user.avatar_url}

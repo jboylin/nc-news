@@ -1,13 +1,12 @@
 import { Redirect } from "react-router";
 import { deleteById } from "../../util/api";
 
-const DeleteArticleById = ({ article, setArticles }) => {
-  const id = article.article_id;
+const DeleteArticleById = ({ article }) => {
+  const article_id = article.article_id;
   const removeArticle = () => {
     const type = "articles";
-    deleteById(type, id).then(() => {
-      <Redirect to="/Home" />;
-    });
+    deleteById(type, article_id);
+    <Redirect to="/" />;
   };
 
   return <button onClick={() => removeArticle()}>Delete</button>;

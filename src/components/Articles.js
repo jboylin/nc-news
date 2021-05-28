@@ -37,8 +37,8 @@ const Articles = () => {
       <ul className="article">
         {articles.map((article) => {
           return (
-            <div className="article__body">
-              <li key={article.article_id}>
+            <div key={article.article_id} className="article__body">
+              <li>
                 <Link to={`/articles/${article.article_id}`}>
                   <h1>{article.title}</h1>
                 </Link>
