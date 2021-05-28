@@ -39,7 +39,7 @@ export const fetchUsers = () => {
 export const voteOnType = (type, id, voteObject) => {
   return axios
     .patch(`${BASE_URL}${type}/${id}`, voteObject)
-    .then((response) => console.log(response));
+    .then((response) => response);
 };
 
 export const postCommentOnArticle = (article_id, commentObject) => {
@@ -49,11 +49,7 @@ export const postCommentOnArticle = (article_id, commentObject) => {
 };
 
 export const deleteById = (type, id) => {
-  console.log(type);
-  console.log(id);
-  return axios
-    .delete(`${BASE_URL}${type}/${id}`)
-    .then((response) => console.log(response));
+  return axios.delete(`${BASE_URL}${type}/${id}`).then((response) => response);
 };
 
 export const fetchUserByUsername = (username) => {

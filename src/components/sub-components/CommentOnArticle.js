@@ -15,7 +15,6 @@ const CommentOnArticle = ({ article_id, setCommentCounter, setComments }) => {
     event.preventDefault();
     postCommentOnArticle(article_id, comment).then((data) => {
       setComments((currComments) => {
-        console.log(data);
         return [...currComments, data.comment];
       });
     });
