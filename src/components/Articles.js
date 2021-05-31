@@ -9,14 +9,15 @@ const Articles = () => {
   const [articles, setArticles] = useState();
   const [loading, setLoading] = useState(true);
   const [order, setOrder] = useState();
+  const [sort_by, setSort] = useState();
   let { topic } = useParams();
 
   useEffect(() => {
-    fetchArticles(topic, order).then((articles) => {
+    fetchArticles(topic, order, sort_by).then((articles) => {
       setArticles(articles);
       setLoading(false);
     });
-  }, [topic, order]);
+  }, [topic, order, sort_by]);
 
   if (loading) return <p>Loading...</p>;
   return (
@@ -24,6 +25,7 @@ const Articles = () => {
       <button
         onClick={() => {
           setOrder("desc");
+          setSort("created_at");
         }}
       >
         recent
@@ -31,10 +33,29 @@ const Articles = () => {
       <button
         onClick={() => {
           setOrder("asc");
+          setSort("created_at");
         }}
       >
         oldest
       </button>
+
+      <button
+        onClick={() => {
+          setSort("votes");
+          setOrder("desc");
+        }}
+      >
+        popular
+      </button>
+      <button
+        onClick={() => {
+          setSort("votes");
+          setOrder("asc");
+        }}
+      >
+        least popular
+      </button>
+
       <WriteNewArticle setArticles={setArticles} />
       <ul className="article">
         {articles.map((article) => {

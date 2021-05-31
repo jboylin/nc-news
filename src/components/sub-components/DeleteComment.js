@@ -10,8 +10,7 @@ const DeleteComment = ({ comment, setCommentCounter, setComments }) => {
     deleteById(type, comment_id).then(() => {
       setDeleting(false);
       setComments((currComments) => {
-        const currCommentsCopy = [...currComments];
-        return currCommentsCopy.filter((currComment) => {
+        return currComments.filter((currComment) => {
           return currComment.comment_id !== comment_id;
         });
       });
@@ -21,7 +20,7 @@ const DeleteComment = ({ comment, setCommentCounter, setComments }) => {
     });
   };
   if (deleting) return <h1>deleting...</h1>;
-  return <button onClick={() => removeComment()}>Delete</button>;
+  return <button onClick={removeComment}>Delete</button>;
 };
 
 export default DeleteComment;
