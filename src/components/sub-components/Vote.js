@@ -1,6 +1,6 @@
 import { useState } from "react";
-import up_arrow from "/home/joseph/Northcoders/frontend/week-10/nc-news/src/images/up_arrow.png";
-import down_arrow from "/home/joseph/Northcoders/frontend/week-10/nc-news/src/images/down_arrow.png";
+import up_arrow from "../../images/up_arrow.png";
+import down_arrow from "../../images/down_arrow.png";
 import { voteOnType } from "../../util/api";
 const VoteOnArticle = ({ commentOrArt, id, type }) => {
   const [voteChange, setVoteChange] = useState(0);
@@ -9,6 +9,7 @@ const VoteOnArticle = ({ commentOrArt, id, type }) => {
     setVoteChange(vote);
     voteOnType(type, id, vote);
   };
+
 
   return (
     <>
@@ -19,6 +20,7 @@ const VoteOnArticle = ({ commentOrArt, id, type }) => {
             id="button__upvote"
             onClick={() => {
               handleVote(1);
+              setDisable(true);
             }}
           >
             <img className="vote__icon" src={up_arrow} alt="upvote" />
@@ -29,6 +31,8 @@ const VoteOnArticle = ({ commentOrArt, id, type }) => {
             id="button__downvote"
             onClick={() => {
               handleVote(-1);
+              setDisable(true);
+
             }}
           >
             <img className="vote__icon" src={down_arrow} alt="downvote" />
@@ -41,7 +45,3 @@ const VoteOnArticle = ({ commentOrArt, id, type }) => {
 
 export default VoteOnArticle;
 
-/* You were here:
-    wondering whether you need to use useparams. If you need to pass down
-    the whole of article anyway which contains the article id? Maybe both?
-*/
