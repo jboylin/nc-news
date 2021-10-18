@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchTopics } from "../util/api";
 
+import './styles/Nav.css'
+
 const Nav = () => {
   const [topics, setTopics] = useState();
   const [loading, setLoading] = useState(true);
@@ -17,19 +19,26 @@ const Nav = () => {
   if (loading) return <p>Loading...</p>;
 
   return (
-    <nav className="navbar">
-      {topics.map((topic) => {
-        return (
-          <Link
+    <div className="navbar__container">
+      <nav className="navbar">
+      <button className="dropbtn">Dropdown 
+      👉
+      </button>
+      <div className='navbar__topics'>
+        {topics.map((topic) => {
+          return (
+            <Link
             className="navbar__topic"
             key={topic.slug}
             to={`/articles/topics/${topic.slug}`}
-          >
-            {topic.slug}
-          </Link>
-        );
-      })}
-    </nav>
+            >
+              {topic.slug}
+            </Link>
+          );
+        })}
+        </div>
+      </nav>
+    </div>
   );
 };
 

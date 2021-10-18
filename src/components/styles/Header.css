@@ -1,0 +1,19 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+
+    background-color: var(--clr-accent);
+    box-shadow: var(--bs-header);
+}
+
+.header__title {
+    font-family: var(--ff-primary);
+    font-size: var(--fs-h3);
+}
+
+.header__username {
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+}
