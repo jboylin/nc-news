@@ -6,6 +6,7 @@
 
     background-color: var(--clr-accent);
     box-shadow: var(--bs-header);
+
 }
 
 .header__title {
@@ -16,4 +17,9 @@
 .header__username {
     font-family: var(--ff-primary);
     font-size: var(--fs-body);
+    padding: 0.7rem;
+    margin-right: 1rem;
+    border: 1px solid var(--clr-light-blue);
+    border-radius: 50px;
+    align-self: center;
 }

@@ -9,10 +9,10 @@ const Header = () => {
   const { user } = useContext(UserContext);
   return (
     <div className='header'>
+      <Nav className="header__nav"/>
       <Link to="/home">
         <h1 className="header__title">NC-NEWS</h1>
       </Link>
-      <Nav />
       <Link to="/">
         <h2 className="header__username">{user.username}</h2>
       </Link>

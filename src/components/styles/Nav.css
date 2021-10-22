@@ -1,19 +1,23 @@
 .navbar__container {
     overflow: hidden;
     background-color: inherit;
+    height: inherit;
+    width: 8rem;
+    margin: 0.5rem;
+    border-radius: 50px;
+    border: 1px solid var(--clr-light-blue);
+    color: var(--clr-dark);
 }
 
 .navbar {
-    float: left;
     overflow: hidden;
+    height: inherit;
 }
 
 .navbar__container a {
-    float: left;
     font-size: var(--fs-body);
-    color: white;
     text-align: center;
-    padding: 10px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -26,10 +30,18 @@
     padding: 12px 16px;
     background-color: inherit;
     font-family: inherit;
-    margin: 0;
+    width: 8rem;
 }
-.navbar__container a:hover, .navbar:hover .dropbtn {
-    background-color: red;
+
+.dropbtn__link {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar__container:hover, .navbar__container a:hover, .navbar:hover, .dropbtn:hover {
+    background-color: var(--clr-light-blue);
+    border-radius: 50px;
+    color: white;
   }
 
 .navbar__topics {
@@ -51,9 +63,11 @@
 }
 
 .navbar__topics a:hover {
-    background-color: #ddd;
+    background-color: var(--clr-light-blue);
 }
 
 .navbar:hover .navbar__topics {
     display: block;
+    border-radius: 25px;
+    color: white;
 }
