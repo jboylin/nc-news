@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import comment_icon from "../images/159777.png";
 import Vote from "./sub-components/Vote";
 import WriteNewArticle from "./sub-components/WriteNewArticle";
+import './styles/Articles.css'
 const Articles = () => {
   const [articles, setArticles] = useState();
   const [loading, setLoading] = useState(true);
@@ -21,8 +22,10 @@ const Articles = () => {
 
   if (loading) return <p>Loading...</p>;
   return (
-    <>
+    <div className='articles'>
+      <div className='articles__filter'>
       <button
+        className='articles__filter__button'
         onClick={() => {
           setOrder("desc");
           setSort("created_at");
@@ -31,6 +34,7 @@ const Articles = () => {
         recent
       </button>
       <button
+        className='articles__filter__button'
         onClick={() => {
           setOrder("asc");
           setSort("created_at");
@@ -38,8 +42,8 @@ const Articles = () => {
       >
         oldest
       </button>
-
       <button
+        className='articles__filter__button'
         onClick={() => {
           setSort("votes");
           setOrder("desc");
@@ -48,6 +52,7 @@ const Articles = () => {
         popular
       </button>
       <button
+        className='articles__filter__button'
         onClick={() => {
           setSort("votes");
           setOrder("asc");
@@ -55,6 +60,7 @@ const Articles = () => {
       >
         least popular
       </button>
+      </div>
 
       <WriteNewArticle setArticles={setArticles} />
       <ul className="article">
@@ -86,7 +92,7 @@ const Articles = () => {
           );
         })}
       </ul>
-    </>
+    </div>
   );
 };
 
