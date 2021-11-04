@@ -24,14 +24,15 @@ const WriteNewArticle = ({ setArticles }) => {
   };
 
   return (
-    <>
-      <h1>Post Article</h1>
-      <form className="article__form" onSubmit={writeArticle}>
-        <label htmlFor="article_title">
+    <div className='post__container'>
+      <h1 className='post__title'>Post Article</h1>
+      <form className="post__form" onSubmit={writeArticle}>
+        <label htmlFor="post__title"
+               className='post__title'>
           title...
           <input
             className="form__input"
-            id="article_title"
+            id="post__title"
             type="text"
             required
             value={article.title}
@@ -42,11 +43,12 @@ const WriteNewArticle = ({ setArticles }) => {
             }}
           ></input>
         </label>
-        <label htmlFor="article_body">
+        <label htmlFor="post__body"
+               className='post__title'>
           body...
           <input
             className="form__input"
-            id="article_body"
+            id="post__body"
             type="text"
             required
             value={article.body}
@@ -57,11 +59,12 @@ const WriteNewArticle = ({ setArticles }) => {
             }}
           ></input>
         </label>
-        <label htmlFor="article_topic">
+        <label htmlFor="post__topic"
+               className='article__title'>
           topic...
           <input
             className="form__input"
-            id="article_topic"
+            id="post__topic"
             type="text"
             required
             value={article.topic}
@@ -72,9 +75,9 @@ const WriteNewArticle = ({ setArticles }) => {
             }}
           ></input>
         </label>
-        <button>Submit</button>
+        <button className='post__button'>Submit</button>
       </form>
-    </>
+    </div>
   );
 };
 
