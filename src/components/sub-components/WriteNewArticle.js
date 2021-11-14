@@ -60,7 +60,7 @@ const WriteNewArticle = ({ setArticles }) => {
           ></input>
         </label>
         <label htmlFor="post__topic"
-               className='article__title'>
+               className='post__title'>
           topic...
           <input
             className="form__input"

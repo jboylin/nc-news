@@ -29,14 +29,112 @@
 }
 
 .article__body {
-    background: var(--clr-light-blue);
-    border-radius: 50px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background: var(--clr-dark);
+    border-radius: 15px;
     border: 0.5px solid var(--clr-accent);
     z-index: 1;
+    box-shadow: var(--bs);
+}
+
+.article__content_container {
+    display: grid;
+    grid-template-columns: 5fr 5fr;
+    grid-template-rows: auto auto auto auto auto;
+    grid-template-areas: "Title Title"
+                         "Author Topic"
+                         "Votes Comments"
+                         "Date Date"
+                         "Body Body";
+    background-color: var(--clr-slate);
+    border-radius: 10px;
+}
+
+.article__title {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.Link {
+    grid-area: Title;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background: var(--clr-accent);
+    border-radius: 10px;
+    box-shadow: var(--bs);
+    margin: 0.25rem;
+}
+
+.article__topic {
+    grid-area: Topic;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    text-align: center;
+    color:var(--clr-light);
+    border: 0.5px solid var(--clr-accent);
+    border-radius: 10px;
+    box-shadow: var(--bs);
+}
+
+.article__author {
+    grid-area: Author;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--clr-light);
+    margin: 1rem;
+    border: 0.5px solid var(--clr-accent);
+    border-radius: 10px;
+    box-shadow: var(--bs);
+}
+
+.article__created {
+    grid-area: Date;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--clr-light);
+    margin: 1rem;
+    font-size: 0.75rem;
+    border-top: 1px solid var(--clr-accent);
+}
+
+.comments {
+    grid-area: Comments;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
 }
 
 .comment__icon{
     width: 2rem;
+    margin: 0.7rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    background: var(--clr-light-blue);
+    box-shadow: var(--bs);
+}
+.comment__count {
+    position: relative;
+    color: var(--clr-light);
+}
+
+.votes {
+    grid-area: Votes;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: var(--clr-light-blue);
+    margin: 0.5rem;
 }
 
 
