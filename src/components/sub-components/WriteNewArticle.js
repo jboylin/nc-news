@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { postArticle } from "../../util/api";
 import { UserContext } from "../context/user";
+import '../styles/WriteNewArticle.css';
 
 const WriteNewArticle = ({ setArticles }) => {
   const { user } = useContext(UserContext);
@@ -62,7 +63,7 @@ const WriteNewArticle = ({ setArticles }) => {
         <label htmlFor="post__topic"
                className='post__title'>
           topic...
-          <input
+          <select
             className="form__input"
             id="post__topic"
             type="text"
@@ -73,7 +74,11 @@ const WriteNewArticle = ({ setArticles }) => {
                 return { ...articles, topic: event.target.value };
               });
             }}
-          ></input>
+          >
+            <option className='option' value='coding'>Coding</option>
+            <option className='option' value='football'>Football</option>
+            <option className='option' value='cooking'>Cooking</option>
+          </select>
         </label>
         <button className='post__button'>Submit</button>
       </form>

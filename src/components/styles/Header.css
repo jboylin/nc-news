@@ -6,6 +6,8 @@
 
     background-color: var(--clr-accent);
     box-shadow: var(--bs-header);
+
+    margin-bottom: 0.5rem;
 }
 
 .header__title {

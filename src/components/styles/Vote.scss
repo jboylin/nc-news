@@ -1,3 +1,38 @@
+.vote__container {
+    border-radius: 10px;
+    background: var(--clr-light-blue);
+    padding: 1rem;
+}
+
 .vote__icon {
     width: 1.5rem;
+    padding: 0.25rem;
+}
+
+.vote__icon:hover {
+    cursor: pointer;
+}
+
+.vote__count {
+    display: flex;
+    color: var(--clr-slate);
+    font-size: var(--fs-body);
+    margin: 0;
+}
+
+.vote__count__number {
+    text-align: center;
+    font-size: var(--fs-body);
+}
+
+.vote__button {
+    background: none;
+    border: none;
+    border-radius: 5rem;
+    box-shadow: var(--bs);
+    margin: 0.25rem;
+}
+
+.vote__button:disabled {
+    box-shadow: none;
 }

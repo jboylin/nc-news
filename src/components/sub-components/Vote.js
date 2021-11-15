@@ -15,9 +15,9 @@ const VoteOnArticle = ({ commentOrArt, id, type }) => {
 
 
   return (
-    <>
+    <div className="vote__container">
       <div className="submit__vote">
-        <h6>
+        <div className="vote__count">
           <button
             className='vote__button'
             disabled={disable}
@@ -29,8 +29,9 @@ const VoteOnArticle = ({ commentOrArt, id, type }) => {
           >
             <img className="vote__icon" src={up_arrow} alt="upvote" />
           </button>
-          {commentOrArt.votes + voteChange}
+          <h3 className='vote__count__number'>{commentOrArt.votes + voteChange}</h3>
           <button
+            className="vote__button"
             disabled={disable}
             id="button__downvote"
             onClick={() => {
@@ -41,9 +42,9 @@ const VoteOnArticle = ({ commentOrArt, id, type }) => {
           >
             <img className="vote__icon" src={down_arrow} alt="downvote" />
           </button>
-        </h6>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 
