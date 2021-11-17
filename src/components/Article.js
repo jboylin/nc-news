@@ -25,20 +25,24 @@ const Article = () => {
   return (
     <div className='article__container'>
       <h1 className='S_article__title'>{article.title}</h1>
-      <h2 className='S_article__topic'>{article.topic}</h2>
+      <h3 className='S_article__topic'>{article.topic}</h3>
       <h3 className='S_article__author'>{article.author}</h3>
-      <h4 className='S_article__date'>{article.created_at}</h4>
       <p className='S_article__body'>{article.body}</p>
-      <Vote commentOrArt={article} id={article.article_id} type={"articles"} />
-      <DeleteArticleById article={article} />
-      <h5 className='article__commentCount'>
+      <h4 className='S_article__date'>{article.created_at}</h4>
+      <div className='S_article__vote'>
+        <Vote commentOrArt={article} id={article.article_id} type={"articles"} />
+      </div>
+      <div className='S_article__delete'>
+        <DeleteArticleById article={article} />
+      </div>
+      <div className='S_article__comments'>
         <img className="comment__icon" src={comment_icon} alt="comment_icon" />
         {parseInt(article.comment_count) + commentCounter}
-      </h5>
       <Comments
         commentCounter={commentCounter}
         setCommentCounter={setCommentCounter}
-      />
+        />
+        </div>
     </div>
   );
 };

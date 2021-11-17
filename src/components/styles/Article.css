@@ -1,26 +1,72 @@
 .article__container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 5fr 5fr;
+    grid-template-rows: auto auto auto auto auto auto;
+    grid-template-areas: 'Title Title'
+                         'Topic Author'
+                         'Body Body'
+                         'Votes Date'
+                         'Delete Delete'
+                         'Comms Comms';
     align-items: center;
     justify-content: center;
     background: var(--clr-slate);
     border-radius: 10px;
     color: var(--clr-light);
+    box-shadow: var(--bs);
 }
 
 .S_article__title {
+    grid-area: Title;
     border-radius: 10px;
     background: var(--clr-accent);
     text-align: center;
-    padding: 2rem;
+    padding: 1.5rem;
     margin: 0.5rem;
+    box-shadow: var(--bs-header);
 }
 
 .S_article__topic {
+    grid-area: Topic;
+}
+
+.S_article__author {
+    grid-area: Author;
+}
+
+.S_article__topic, .S_article__author {
     border-radius: 10px;
     border: 1px solid var(--clr-accent);
     text-align: center;
-    padding: 0.75rem;
+    padding: 0.5rem;
     margin: 0.5rem;
     box-shadow: var(--bs);
+}
+
+.S_article__body {
+    grid-area: Body;
+    margin: 1rem 8rem;
+    padding: 1rem;
+    border: 1px solid var(--clr-dark);
+    border-radius: 1rem;
+    box-shadow: var(--bs);
+}
+
+.S_article__date {
+    grid-area: Date;
+    position: relative;
+    top: -1rem;
+    left: -21rem;
+}
+
+.S_article__comments {
+    grid-area: Comms
+}
+
+.S_article__vote {
+    grid-area: Votes;
+}
+
+.S_article__delete {
+    grid-area: Delete;
 }
